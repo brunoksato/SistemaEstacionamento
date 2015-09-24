@@ -1,15 +1,8 @@
 ﻿using Estacionamento.Models;
 using MetroFramework;
-using MetroFramework.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Estacionamento
@@ -109,18 +102,37 @@ namespace Estacionamento
                 {
                     dataSaida = DateTime.Now.ToShortDateString() + " " + dtSaida.Value.ToShortTimeString();
                 }
-                
-                var modelo = new Fluxo()
+
+                Fluxo modelo;
+
+                if (checkSaida.Checked)
                 {
-                    Codigo = int.Parse(txtCodigo.Text),
-                    Nome = txtDescricao.Text,
-                    DataEntrada = Convert.ToDateTime(dataEntrada),
-                    DataSaida = Convert.ToDateTime(dataSaida),
-                    Placa = txtPlaca.Text,
-                    Modelo = cbModelo.SelectedValue.ToString(),
-                    Type = cbTipoValor.SelectedValue.ToString(),
-                    Valor = (double)txtValorTotal.Value
-                };
+                    modelo = new Fluxo()
+                    {
+                        Codigo = int.Parse(txtCodigo.Text),
+                        Nome = txtDescricao.Text,
+                        DataEntrada = Convert.ToDateTime(dataEntrada),
+                        DataSaida = Convert.ToDateTime(dataSaida),
+                        Placa = txtPlaca.Text,
+                        Modelo = cbModelo.SelectedValue.ToString(),
+                        Type = cbTipoValor.SelectedValue.ToString(),
+                        Valor = (double)txtValorTotal.Value
+                    };
+                }
+                else
+                {
+                    modelo = new Fluxo()
+                    {
+                        Codigo = int.Parse(txtCodigo.Text),
+                        Nome = txtDescricao.Text,
+                        DataEntrada = Convert.ToDateTime(dataEntrada),
+                        DataSaida = null,
+                        Placa = txtPlaca.Text,
+                        Modelo = cbModelo.SelectedValue.ToString(),
+                        Type = cbTipoValor.SelectedValue.ToString(),
+                        Valor = (double)txtValorTotal.Value
+                    };
+                }
 
                 db.Fluxoes.Add(modelo);
                 db.SaveChanges();

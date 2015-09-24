@@ -50,9 +50,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.metroButton5 = new MetroFramework.Controls.MetroButton();
-            this.btnSalvar = new System.Windows.Forms.Button();
             this.txtValorTotal = new System.Windows.Forms.NumericUpDown();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.metroButton5 = new MetroFramework.Controls.MetroButton();
+            this.checkSaida = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorTotal)).BeginInit();
             this.SuspendLayout();
@@ -263,6 +264,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkSaida);
             this.groupBox1.Controls.Add(this.txtValorTotal);
             this.groupBox1.Controls.Add(this.btnSalvar);
             this.groupBox1.Controls.Add(this.txtCodigo);
@@ -287,16 +289,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastro";
             // 
-            // metroButton5
+            // txtValorTotal
             // 
-            this.metroButton5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.metroButton5.Location = new System.Drawing.Point(128, 63);
-            this.metroButton5.Name = "metroButton5";
-            this.metroButton5.Size = new System.Drawing.Size(98, 74);
-            this.metroButton5.TabIndex = 32;
-            this.metroButton5.Text = "Cadastro Modelo";
-            this.metroButton5.UseSelectable = true;
-            this.metroButton5.Click += new System.EventHandler(this.metroButton5_Click);
+            this.txtValorTotal.Location = new System.Drawing.Point(417, 220);
+            this.txtValorTotal.Name = "txtValorTotal";
+            this.txtValorTotal.Size = new System.Drawing.Size(156, 20);
+            this.txtValorTotal.TabIndex = 32;
             // 
             // btnSalvar
             // 
@@ -308,12 +306,26 @@
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // txtValorTotal
+            // metroButton5
             // 
-            this.txtValorTotal.Location = new System.Drawing.Point(417, 220);
-            this.txtValorTotal.Name = "txtValorTotal";
-            this.txtValorTotal.Size = new System.Drawing.Size(156, 20);
-            this.txtValorTotal.TabIndex = 32;
+            this.metroButton5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.metroButton5.Location = new System.Drawing.Point(128, 63);
+            this.metroButton5.Name = "metroButton5";
+            this.metroButton5.Size = new System.Drawing.Size(98, 74);
+            this.metroButton5.TabIndex = 32;
+            this.metroButton5.Text = "Cadastro Modelo";
+            this.metroButton5.UseSelectable = true;
+            this.metroButton5.Click += new System.EventHandler(this.metroButton5_Click);
+            // 
+            // checkSaida
+            // 
+            this.checkSaida.AutoSize = true;
+            this.checkSaida.Location = new System.Drawing.Point(590, 168);
+            this.checkSaida.Name = "checkSaida";
+            this.checkSaida.Size = new System.Drawing.Size(79, 17);
+            this.checkSaida.TabIndex = 33;
+            this.checkSaida.Text = "Com Saída";
+            this.checkSaida.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -364,6 +376,7 @@
         private MetroFramework.Controls.MetroButton metroButton5;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.NumericUpDown txtValorTotal;
+        private System.Windows.Forms.CheckBox checkSaida;
     }
 }
 
