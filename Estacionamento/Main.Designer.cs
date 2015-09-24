@@ -50,10 +50,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkSaida = new System.Windows.Forms.CheckBox();
             this.txtValorTotal = new System.Windows.Forms.NumericUpDown();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.metroButton5 = new MetroFramework.Controls.MetroButton();
-            this.checkSaida = new System.Windows.Forms.CheckBox();
+            this.btnSalvarPrint = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorTotal)).BeginInit();
             this.SuspendLayout();
@@ -264,6 +265,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSalvarPrint);
             this.groupBox1.Controls.Add(this.checkSaida);
             this.groupBox1.Controls.Add(this.txtValorTotal);
             this.groupBox1.Controls.Add(this.btnSalvar);
@@ -289,6 +291,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastro";
             // 
+            // checkSaida
+            // 
+            this.checkSaida.AutoSize = true;
+            this.checkSaida.Location = new System.Drawing.Point(590, 168);
+            this.checkSaida.Name = "checkSaida";
+            this.checkSaida.Size = new System.Drawing.Size(79, 17);
+            this.checkSaida.TabIndex = 33;
+            this.checkSaida.Text = "Com Saída";
+            this.checkSaida.UseVisualStyleBackColor = true;
+            // 
             // txtValorTotal
             // 
             this.txtValorTotal.Location = new System.Drawing.Point(417, 220);
@@ -298,7 +310,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(742, 258);
+            this.btnSalvar.Location = new System.Drawing.Point(608, 256);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(91, 31);
             this.btnSalvar.TabIndex = 31;
@@ -317,15 +329,15 @@
             this.metroButton5.UseSelectable = true;
             this.metroButton5.Click += new System.EventHandler(this.metroButton5_Click);
             // 
-            // checkSaida
+            // btnSalvarPrint
             // 
-            this.checkSaida.AutoSize = true;
-            this.checkSaida.Location = new System.Drawing.Point(590, 168);
-            this.checkSaida.Name = "checkSaida";
-            this.checkSaida.Size = new System.Drawing.Size(79, 17);
-            this.checkSaida.TabIndex = 33;
-            this.checkSaida.Text = "Com Saída";
-            this.checkSaida.UseVisualStyleBackColor = true;
+            this.btnSalvarPrint.Location = new System.Drawing.Point(714, 256);
+            this.btnSalvarPrint.Name = "btnSalvarPrint";
+            this.btnSalvarPrint.Size = new System.Drawing.Size(132, 31);
+            this.btnSalvarPrint.TabIndex = 34;
+            this.btnSalvarPrint.Text = "Salvar e Imprimir";
+            this.btnSalvarPrint.UseVisualStyleBackColor = true;
+            this.btnSalvarPrint.Click += new System.EventHandler(this.btnSalvarPrint_Click);
             // 
             // Main
             // 
@@ -377,6 +389,7 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.NumericUpDown txtValorTotal;
         private System.Windows.Forms.CheckBox checkSaida;
+        private System.Windows.Forms.Button btnSalvarPrint;
     }
 }
 
