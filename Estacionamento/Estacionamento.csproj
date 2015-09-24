@@ -71,6 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastroModelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroModelo.Designer.cs">
+      <DependentUpon>CadastroModelo.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadastroUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     <Compile Include="RelatorioFechamento.Designer.cs">
       <DependentUpon>RelatorioFechamento.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CadastroModelo.resx">
+      <DependentUpon>CadastroModelo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CadastroUsuario.resx">
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
     </EmbeddedResource>

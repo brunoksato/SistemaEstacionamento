@@ -13,7 +13,7 @@ namespace Estacionamento.Models.Mapping
 
             // Properties
             this.Property(t => t.ID)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             this.Property(t => t.Placa)
                 .IsRequired()

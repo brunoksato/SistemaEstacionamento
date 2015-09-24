@@ -35,6 +35,7 @@
             this.gridUsuario = new System.Windows.Forms.DataGridView();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.userID = new System.Windows.Forms.Label();
+            this.btnDeletar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridUsuario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,15 +99,27 @@
             this.userID.AutoSize = true;
             this.userID.Location = new System.Drawing.Point(300, 18);
             this.userID.Name = "userID";
-            this.userID.Size = new System.Drawing.Size(0, 13);
+            this.userID.Size = new System.Drawing.Size(35, 13);
             this.userID.TabIndex = 6;
+            this.userID.Text = "label2";
             this.userID.Visible = false;
+            // 
+            // btnDeletar
+            // 
+            this.btnDeletar.Location = new System.Drawing.Point(162, 163);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(75, 23);
+            this.btnDeletar.TabIndex = 7;
+            this.btnDeletar.Text = "Deletar";
+            this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // CadastroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(391, 684);
+            this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.userID);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.gridUsuario);
@@ -131,5 +144,6 @@
         private System.Windows.Forms.DataGridView gridUsuario;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label userID;
+        private System.Windows.Forms.Button btnDeletar;
     }
 }

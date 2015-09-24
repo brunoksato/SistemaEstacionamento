@@ -27,14 +27,17 @@ namespace Estacionamento
         {
             if (txtLogin.Text != string.Empty && txtSenha.Text != string.Empty)
             {
-                var id = int.Parse(userID.Text);
-                var existe = db.Usuarios.Where(x => x.ID == id).SingleOrDefault();
-                if (existe != null)
+                if (userID.Text != "label2")
                 {
-                    existe.Login = txtLogin.Text;
-                    existe.Senha = txtSenha.Text;
-                    db.Entry(existe).State = EntityState.Modified;
-                    db.SaveChanges();
+                    var id = int.Parse(userID.Text);
+                    var existe = db.Usuarios.Where(x => x.ID == id).SingleOrDefault();
+                    if (existe != null)
+                    {
+                        existe.Login = txtLogin.Text;
+                        existe.Senha = txtSenha.Text;
+                        db.Entry(existe).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
                 }
                 else
                 {
@@ -103,6 +106,25 @@ namespace Estacionamento
                 userID.Text = result.ID.ToString();
                 txtLogin.Text = result.Login;
                 txtSenha.Text = result.Senha;
+            }
+        }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            if (userID.Text != string.Empty)
+            {
+                var id = int.Parse(userID.Text);
+                var buscar = db.Usuarios.Where(x => x.ID == id).SingleOrDefault();
+                db.Usuarios.Remove(buscar);
+                db.SaveChanges();
+                txtLogin.Text = string.Empty;
+                txtSenha.Text = string.Empty;
+                userID.Text = string.Empty;
+                PopularGrid();
+            }
+            else
+            {
+                MessageBox.Show("Você não pode exclui um modelo não existente!");
             }
         }
     }
