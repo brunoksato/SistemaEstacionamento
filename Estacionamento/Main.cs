@@ -1,4 +1,5 @@
-﻿using Estacionamento.Models;
+﻿using Epson;
+using Estacionamento.Models;
 using MetroFramework;
 using System;
 using System.Data;
@@ -10,6 +11,7 @@ namespace Estacionamento
     public partial class Main : Form
     {
         private EstacionamentoContext db;
+        private int iRetorno;
 
         public Main()
         {
@@ -137,6 +139,29 @@ namespace Estacionamento
                 db.Fluxoes.Add(modelo);
                 db.SaveChanges();
 
+                iRetorno = InterfaceEpsonNF.ConfiguraTaxaSerial(115200);
+                iRetorno = InterfaceEpsonNF.IniciaPorta("USB");
+                iRetorno = InterfaceEpsonNF.FormataTX("----------------------Estacionamento-----------------------\n", 1, 0, 0, 0, 0);
+                iRetorno = InterfaceEpsonNF.FormataTX("Empresa Teste\n", 1, 0, 0, 0, 0);
+                iRetorno = InterfaceEpsonNF.FormataTX("CNPJ: xxxxxxxxxxxxxx      Inscrição Estadual: yyyyyyyyyy\n", 1, 0, 0, 0, 0);
+                iRetorno = InterfaceEpsonNF.FormataTX("Rua: aaaaaaaaaaaa, Número: 999   Bairro: bbbbbbb\n", 1, 0, 0, 0, 0);
+                iRetorno = InterfaceEpsonNF.FormataTX("Cidade: zzzzzzzzzzzz nn\n", 1, 0, 0, 0, 0);
+                iRetorno = InterfaceEpsonNF.FormataTX("--------------------------------------------------------\n", 1, 0, 0, 0, 0);
+                iRetorno = InterfaceEpsonNF.FormataTX("TICKET: " + modelo.ID.ToString() + "\n", 1, 0, 0, 1, 0);
+                iRetorno = InterfaceEpsonNF.FormataTX("--------------------------------------------------------\n", 1, 0, 0, 0, 0);
+                iRetorno = InterfaceEpsonNF.FormataTX("PLACA: " + txtPlaca.Text + "\n", 1, 0, 0, 1, 0);
+                iRetorno = InterfaceEpsonNF.FormataTX("ENTRADA: " + dtEntrada.Value.ToString() + "\n", 1, 0, 0, 1, 0);
+                //iRetorno = InterfaceEpsonNF.FormataTX("SAÍDA: " + dtSaida.Text + "\n", 1, 0, 0, 1, 0);
+                //iRetorno = InterfaceEpsonNF.FormataTX("PERMANENCIA: " + dtSaida.Value.Subtract((DateTime)result.DataEntrada) + "\n", 1, 0, 0, 1, 0);
+                iRetorno = InterfaceEpsonNF.FormataTX("TIPO: " + cbTipoValor.SelectedValue.ToString() + "\n", 1, 0, 0, 1, 0);
+                iRetorno = InterfaceEpsonNF.FormataTX("--------------------------------------------------------\n", 1, 0, 0, 0, 0);
+                iRetorno = InterfaceEpsonNF.FormataTX("--------------------------------------------------------\n", 1, 0, 0, 0, 0);
+                if(cbTipoValor.SelectedValue.ToString() != "Por Hora")
+                    iRetorno = InterfaceEpsonNF.FormataTX("TOTAL: " + txtValorTotal.Value.ToString("c2") + "\n", 1, 0, 0, 1, 0);
+                iRetorno = InterfaceEpsonNF.FormataTX("--------------------------------------------------------\n", 1, 0, 0, 0, 0);
+                iRetorno = InterfaceEpsonNF.FormataTX("--------------------------------------------------------\n\n", 1, 0, 0, 0, 0);
+                iRetorno = InterfaceEpsonNF.FormataTX("---OBRIGADO E VOLTE SEMPRE---\n\n\n\n\n\n\n\n\n", 1, 0, 0, 1, 1);
+
                 LimparCampos();
             }
             else
@@ -154,8 +179,8 @@ namespace Estacionamento
             cbModelo.DisplayMember = "Nome";
             cbModelo.ValueMember = "Nome";
 
-            var query1 = from c in db.Horarios.ToList()
-                        select new DataBindingTipoValor { Type = c.Type };
+            var query1 = from c in db.Horarios.Where(x => x.Type != "Demais horas").ToList()
+                         select new DataBindingTipoValor { Type = c.Type };
             var horarios = query1.ToList();
             cbTipoValor.DataSource = horarios;
             cbTipoValor.DisplayMember = "Type";
@@ -195,6 +220,12 @@ namespace Estacionamento
             if (cbTipoValor.SelectedValue.ToString() == "Estacionamento.Main+DataBindingTipoValor")
             {
                 var value = ((DataBindingTipoValor)cbTipoValor.SelectedValue).Type;
+                if (value == "Por Hora")
+                {
+                    txtValorTotal.Value = 0;
+                    return;
+                }
+
                 var calculeValor = db.Horarios.Where(x => x.Type == value).FirstOrDefault();
                 if (calculeValor != null)
                 {
@@ -203,6 +234,11 @@ namespace Estacionamento
             }
             else
             {
+                if (cbTipoValor.SelectedValue.ToString() == "Por Hora")
+                {
+                    txtValorTotal.Value = 0;
+                    return;
+                }
                 var calculeValor = db.Horarios.Where(x => x.Type == cbTipoValor.SelectedValue.ToString()).FirstOrDefault();
                 if (calculeValor != null)
                 {
@@ -216,6 +252,11 @@ namespace Estacionamento
         private void btnSalvarPrint_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnTicket_Click(object sender, EventArgs e)
+        {
+            new Ticket().Show();
         }
     }
 }

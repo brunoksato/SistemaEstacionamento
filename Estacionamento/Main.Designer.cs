@@ -50,11 +50,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSalvarPrint = new System.Windows.Forms.Button();
             this.checkSaida = new System.Windows.Forms.CheckBox();
             this.txtValorTotal = new System.Windows.Forms.NumericUpDown();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.metroButton5 = new MetroFramework.Controls.MetroButton();
-            this.btnSalvarPrint = new System.Windows.Forms.Button();
+            this.btnTicket = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorTotal)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +63,7 @@
             // button1
             // 
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(728, 63);
+            this.button1.Location = new System.Drawing.Point(832, 63);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 74);
             this.button1.TabIndex = 5;
@@ -95,7 +96,7 @@
             // btnConfig
             // 
             this.btnConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnConfig.Location = new System.Drawing.Point(624, 63);
+            this.btnConfig.Location = new System.Drawing.Point(728, 63);
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(98, 74);
             this.btnConfig.TabIndex = 12;
@@ -117,7 +118,7 @@
             // metroButton3
             // 
             this.metroButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.metroButton3.Location = new System.Drawing.Point(486, 63);
+            this.metroButton3.Location = new System.Drawing.Point(590, 63);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(132, 74);
             this.metroButton3.TabIndex = 14;
@@ -130,23 +131,23 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(324, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 15;
-            this.label1.Text = "Codigo";
+            this.label1.Text = "Prisma";
             // 
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(417, 57);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(156, 20);
-            this.txtCodigo.TabIndex = 16;
+            this.txtCodigo.TabIndex = 1;
             // 
             // txtPlaca
             // 
             this.txtPlaca.Location = new System.Drawing.Point(130, 57);
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(156, 20);
-            this.txtPlaca.TabIndex = 18;
+            this.txtPlaca.TabIndex = 0;
             this.txtPlaca.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPlaca_KeyDown);
             // 
             // label2
@@ -175,14 +176,14 @@
             this.cbModelo.Location = new System.Drawing.Point(130, 112);
             this.cbModelo.Name = "cbModelo";
             this.cbModelo.Size = new System.Drawing.Size(156, 21);
-            this.cbModelo.TabIndex = 20;
+            this.cbModelo.TabIndex = 2;
             // 
             // txtDescricao
             // 
             this.txtDescricao.Location = new System.Drawing.Point(417, 112);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(416, 20);
-            this.txtDescricao.TabIndex = 22;
+            this.txtDescricao.TabIndex = 3;
             // 
             // label4
             // 
@@ -212,7 +213,7 @@
             this.dtEntrada.Name = "dtEntrada";
             this.dtEntrada.ShowUpDown = true;
             this.dtEntrada.Size = new System.Drawing.Size(156, 20);
-            this.dtEntrada.TabIndex = 24;
+            this.dtEntrada.TabIndex = 4;
             // 
             // dtSaida
             // 
@@ -222,7 +223,8 @@
             this.dtSaida.Name = "dtSaida";
             this.dtSaida.ShowUpDown = true;
             this.dtSaida.Size = new System.Drawing.Size(156, 20);
-            this.dtSaida.TabIndex = 26;
+            this.dtSaida.TabIndex = 444;
+            this.dtSaida.Visible = false;
             // 
             // label6
             // 
@@ -233,6 +235,7 @@
             this.label6.TabIndex = 25;
             this.label6.Text = "Data Saída";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label6.Visible = false;
             // 
             // cbTipoValor
             // 
@@ -242,7 +245,7 @@
             this.cbTipoValor.Location = new System.Drawing.Point(130, 220);
             this.cbTipoValor.Name = "cbTipoValor";
             this.cbTipoValor.Size = new System.Drawing.Size(156, 21);
-            this.cbTipoValor.TabIndex = 28;
+            this.cbTipoValor.TabIndex = 5;
             this.cbTipoValor.SelectedIndexChanged += new System.EventHandler(this.cbTipoValor_SelectedIndexChanged);
             // 
             // label7
@@ -291,6 +294,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastro";
             // 
+            // btnSalvarPrint
+            // 
+            this.btnSalvarPrint.Location = new System.Drawing.Point(714, 256);
+            this.btnSalvarPrint.Name = "btnSalvarPrint";
+            this.btnSalvarPrint.Size = new System.Drawing.Size(132, 31);
+            this.btnSalvarPrint.TabIndex = 34;
+            this.btnSalvarPrint.Text = "Salvar e Imprimir";
+            this.btnSalvarPrint.UseVisualStyleBackColor = true;
+            this.btnSalvarPrint.Visible = false;
+            this.btnSalvarPrint.Click += new System.EventHandler(this.btnSalvarPrint_Click);
+            // 
             // checkSaida
             // 
             this.checkSaida.AutoSize = true;
@@ -300,20 +314,21 @@
             this.checkSaida.TabIndex = 33;
             this.checkSaida.Text = "Com Saída";
             this.checkSaida.UseVisualStyleBackColor = true;
+            this.checkSaida.Visible = false;
             // 
             // txtValorTotal
             // 
             this.txtValorTotal.Location = new System.Drawing.Point(417, 220);
             this.txtValorTotal.Name = "txtValorTotal";
             this.txtValorTotal.Size = new System.Drawing.Size(156, 20);
-            this.txtValorTotal.TabIndex = 32;
+            this.txtValorTotal.TabIndex = 6;
             // 
             // btnSalvar
             // 
             this.btnSalvar.Location = new System.Drawing.Point(608, 256);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(91, 31);
-            this.btnSalvar.TabIndex = 31;
+            this.btnSalvar.TabIndex = 7;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -329,21 +344,23 @@
             this.metroButton5.UseSelectable = true;
             this.metroButton5.Click += new System.EventHandler(this.metroButton5_Click);
             // 
-            // btnSalvarPrint
+            // btnTicket
             // 
-            this.btnSalvarPrint.Location = new System.Drawing.Point(714, 256);
-            this.btnSalvarPrint.Name = "btnSalvarPrint";
-            this.btnSalvarPrint.Size = new System.Drawing.Size(132, 31);
-            this.btnSalvarPrint.TabIndex = 34;
-            this.btnSalvarPrint.Text = "Salvar e Imprimir";
-            this.btnSalvarPrint.UseVisualStyleBackColor = true;
-            this.btnSalvarPrint.Click += new System.EventHandler(this.btnSalvarPrint_Click);
+            this.btnTicket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTicket.Location = new System.Drawing.Point(486, 63);
+            this.btnTicket.Name = "btnTicket";
+            this.btnTicket.Size = new System.Drawing.Size(98, 74);
+            this.btnTicket.TabIndex = 33;
+            this.btnTicket.Text = "Ticket";
+            this.btnTicket.UseSelectable = true;
+            this.btnTicket.Click += new System.EventHandler(this.btnTicket_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 532);
+            this.Controls.Add(this.btnTicket);
             this.Controls.Add(this.metroButton5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.metroButton3);
@@ -390,6 +407,7 @@
         private System.Windows.Forms.NumericUpDown txtValorTotal;
         private System.Windows.Forms.CheckBox checkSaida;
         private System.Windows.Forms.Button btnSalvarPrint;
+        private MetroFramework.Controls.MetroButton btnTicket;
     }
 }
 

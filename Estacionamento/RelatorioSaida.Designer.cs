@@ -32,6 +32,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dtInicio = new System.Windows.Forms.DateTimePicker();
             this.gridRelatorio = new System.Windows.Forms.DataGridView();
+            this.btnImprimir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridRelatorio)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,11 +72,22 @@
             this.gridRelatorio.Size = new System.Drawing.Size(1103, 568);
             this.gridRelatorio.TabIndex = 7;
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(609, 85);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(75, 23);
+            this.btnImprimir.TabIndex = 8;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // RelatorioSaida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 759);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.gridRelatorio);
             this.Controls.Add(this.dtFim);
             this.Controls.Add(this.btnBuscar);
@@ -94,5 +106,6 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DateTimePicker dtInicio;
         private System.Windows.Forms.DataGridView gridRelatorio;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

@@ -25,8 +25,56 @@ namespace Estacionamento
         
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            //por hora
+            var buscarHora = db.Horarios.Where(x => x.Type == "Por Hora").SingleOrDefault();
+            if (buscarHora != null)
+            {
+                buscarHora.Dia = "Por Hora";
+                buscarHora.DataInicio = DateTime.Now.TimeOfDay;
+                buscarHora.DataFim = DateTime.Now.TimeOfDay;
+                buscarHora.Valor = (double)valorPrimeiraHora.Value;
+                buscarHora.Type = "Por Hora";
+                db.Entry(buscarHora).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            else
+            {
+                var model = new Horario();
+                model.Dia = "Por Hora";
+                model.DataInicio = DateTime.Now.TimeOfDay;
+                model.DataFim = DateTime.Now.TimeOfDay;
+                model.Valor = (double)valorPrimeiraHora.Value;
+                model.Type = "Por Hora";
+                db.Horarios.Add(model);
+                db.SaveChanges();
+            }
+
+            //Demais horas
+            var buscarDemaisHoras = db.Horarios.Where(x => x.Type == "Demais horas").SingleOrDefault();
+            if (buscarHora != null)
+            {
+                buscarHora.Dia = "Demais horas";
+                buscarHora.DataInicio = DateTime.Now.TimeOfDay;
+                buscarHora.DataFim = DateTime.Now.TimeOfDay;
+                buscarHora.Valor = (double)valorSegundaHora.Value;
+                buscarHora.Type = "Demais horas";
+                db.Entry(buscarHora).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            else
+            {
+                var model = new Horario();
+                model.Dia = "Demais horas";
+                model.DataInicio = DateTime.Now.TimeOfDay;
+                model.DataFim = DateTime.Now.TimeOfDay;
+                model.Valor = (double)valorSegundaHora.Value;
+                model.Type = "Demais horas";
+                db.Horarios.Add(model);
+                db.SaveChanges();
+            }
+
             //terca / quarta
-            if(dtTercaInit.Text != string.Empty && dtTercaEnd.Text != string.Empty)
+            if (dtTercaInit.Text != string.Empty && dtTercaEnd.Text != string.Empty)
             {
                 var buscarTerca = db.Horarios.Where(x => x.Type == lblNormal1.Text).SingleOrDefault();
                 if(buscarTerca != null)
@@ -213,6 +261,18 @@ namespace Estacionamento
 
         private void CarregarCampos()
         {
+            var buscarPorHora = db.Horarios.Where(x => x.Type == "Por Hora").SingleOrDefault();
+            if (buscarPorHora != null)
+            {
+                valorPrimeiraHora.Value = (decimal)buscarPorHora.Valor;
+            }
+
+            var buscarDemaisHora = db.Horarios.Where(x => x.Type == "Demais horas").SingleOrDefault();
+            if (buscarDemaisHora != null)
+            {
+                valorSegundaHora.Value = (decimal)buscarDemaisHora.Valor;
+            }
+
             var buscarTerca = db.Horarios.Where(x => x.Type == lblNormal1.Text).SingleOrDefault();
             if(buscarTerca != null)
             {

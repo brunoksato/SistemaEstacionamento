@@ -34,6 +34,7 @@
             this.dtInicio = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.lblValorTotal = new System.Windows.Forms.Label();
+            this.btnImprimir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridRelatorio)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,11 +93,22 @@
             this.lblValorTotal.Size = new System.Drawing.Size(0, 31);
             this.lblValorTotal.TabIndex = 13;
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(620, 88);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(75, 23);
+            this.btnImprimir.TabIndex = 14;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // RelatorioFechamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1220, 785);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.lblValorTotal);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gridRelatorio);
@@ -120,5 +132,6 @@
         private System.Windows.Forms.DateTimePicker dtInicio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblValorTotal;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }
